@@ -1,0 +1,33 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#define SIZE 7
+
+int equal(int x, int y);
+int search(int data[], int size, int key);
+
+void main() {
+    int key, idx;
+    int data[SIZE] = {1,3,4,6,10,11,13};
+    
+    printf("input an integer, this program search for it.\n");
+    scanf("%i",&key);
+    if ((idx = search(data,SIZE,key)) != -1)
+        printf("found in position %i \n", idx);
+    else
+        printf("not found! \n");
+}
+
+int search(int data[],int size, int key){
+    int i;
+    for (i=0; i < size; i++){
+        if (equal(data[i],key)==1)
+            return i;
+    }
+    return -1;
+}
+
+int equal(int x, int y){
+    if (x==y)
+        return 1;
+    return 0;
+}
